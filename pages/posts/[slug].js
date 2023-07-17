@@ -11,18 +11,23 @@ import Layout from '../../components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import { CMS_NAME } from '../../lib/constants'
+import { useEffect } from "react";
 
 export default function Post({ post, morePosts, preview }) {
-  const router = useRouter()
+  const router = useRouter();
 
   if (!router.isFallback && !post) {
-    return <ErrorPage statusCode={404} />
+    return <ErrorPage statusCode={404} />;
   }
+  useEffect(() => {
+    if (post) {
+      console.log(post.category.category);
+    }
+  });
 
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -39,6 +44,10 @@ export default function Post({ post, morePosts, preview }) {
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
+                tags={post.contentfulMetadata.tags}
+                post={post}
+                category={post.category.category}
+                subCategory={post.category.subCategory}
               />
               <PostBody content={post.content} />
             </article>
@@ -50,7 +59,7 @@ export default function Post({ post, morePosts, preview }) {
         )}
       </Container>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps({ params, preview = false }) {
