@@ -17,7 +17,6 @@ export default function Index({ preview, allPosts }) {
           <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
         </Head>
         <Container>
-          <Intro />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -32,7 +31,7 @@ export default function Index({ preview, allPosts }) {
         </Container>
       </Layout>
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ preview = false }) {
