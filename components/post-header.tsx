@@ -1,7 +1,7 @@
-import Avatar from '../components/avatar'
-import DateComponent from '../components/date'
-import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
+import Avatar from "./avatar";
+import DateComponent from "./date";
+import CoverImage from "./cover-image";
+import PostTitle from "./post-title";
 import { useEffect } from "react";
 
 export default function PostHeader({
@@ -49,7 +49,7 @@ export default function PostHeader({
         <DateComponent dateString={date} />
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} url={coverImage.url} />
+        <CoverImage title={title} url={coverImage.url} slug={coverImage.slug} />
       </div>
       <div className="max-w-2xl mx-auto">
         <div className="block mb-6 md:hidden">
