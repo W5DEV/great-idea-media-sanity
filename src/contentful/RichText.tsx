@@ -5,12 +5,11 @@ type RichTextProps = {
   document: RichTextDocument | null;
 };
 
-function RichText({ document }: RichTextProps) {
+export default function RichText({ document }: RichTextProps) {
   if (!document) {
     return null;
   }
+  console.log(documentToReactComponents(document));
 
-  return <>{documentToReactComponents(document)}</>;
+  return <div className="postbody">{documentToReactComponents(document)}</div>;
 }
-
-export default RichText;

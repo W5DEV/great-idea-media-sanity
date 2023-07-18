@@ -5,6 +5,7 @@ import { fetchBlogPost, fetchBlogPosts } from "@/src/contentful/blogPosts";
 import Link from "next/link";
 import RichText from "@/src/contentful/RichText";
 import Image from "next/image";
+import PostPage from "./components/PostPage";
 
 interface BlogPostPageParams {
   slug: string;
@@ -59,32 +60,8 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   const postDate = new Date(blogPost.date);
 
   return (
-    <main className="p-[6vw]">
-      <Link href="/">← Posts</Link>
-      <div className="pt-8 mt-8 prose border-t border-black">
-        <div className="pb-2">
-          <h1 className="pb-2 text-3xl font-semibold">{blogPost.title}</h1>
-          <p>{postDate.toDateString()}</p>
-        </div>
-
-        <div className="flex flex-row items-center justify-start gap-5 my-8">
-          <Image
-            alt={blogPost.author.fields.name}
-            src={"https:" + blogPost.author.fields.picture.fields.file.url}
-            width={48}
-            height={48}
-          />
-          <h2 className="text-xl font-medium">{blogPost.author.fields.name}</h2>
-        </div>
-        <Image
-          alt={blogPost.coverImage.fields.file.fileName}
-          src={"https:" + blogPost.coverImage.fields.file.url}
-          width={1920}
-          height={1080}
-        />
-
-        <RichText document={blogPost.body} />
-      </div>
+    <main>
+      <PostPage blogPost={blogPost} postDate={postDate} />
     </main>
   );
 }

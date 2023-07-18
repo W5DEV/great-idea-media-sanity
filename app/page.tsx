@@ -1,8 +1,6 @@
-import NavBar from "@/components/NavBar";
+import HomePage from "@/app/components/HomePage";
 import {fetchBlogPosts } from "@/src/contentful/blogPosts";
 import { draftMode } from "next/headers";
-import Image from "next/image";
-import Link from "next/link";
 
 async function Home() {
   // Fetch blog posts using the content preview
@@ -20,12 +18,9 @@ async function Home() {
     }
   });
 
-  console.log(news[0].title)
-
   return (
     <>
-      <NavBar news={news} sports={sports} newest={blogPosts[0]} />
-      
+      <HomePage news={news} sports={sports} newest={blogPosts[0]} />
     </>
   );
 }
