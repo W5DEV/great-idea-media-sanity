@@ -15,6 +15,7 @@ export interface BlogPost {
   author: any;
   category: any;
   excerpt: any;
+  date: any;
 }
 
 // A function to transform a Contentful blog post
@@ -34,6 +35,7 @@ export function parseContentfulBlogPost(
     author: blogPostEntry.fields.author,
     category: blogPostEntry.fields.category,
     excerpt: blogPostEntry.fields.excerpt,
+    date: blogPostEntry.fields.date,
   };
 }
 

@@ -70,6 +70,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Render the blog post title */}
         <h1>{blogPost.title}</h1>
+        <p>{blogPost.date}</p>
         <div>
           <Image
             alt={blogPost.author.fields.name}
