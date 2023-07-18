@@ -60,22 +60,25 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <main className="p-[6vw]">
       <Link href="/">← Posts</Link>
-      <div className="prose mt-8 border-t pt-8">
-        {/* Render the blog post image */}
-        {/* {blogPost.coverImage && (
-          <Image
-            src={blogPost.coverImage.sys.id}
-            // Use the Contentful Images API to render
-            // responsive images. No next/image required:
-            srcSet={`${blogPost.coverImage.src}?w=300 1x, ${blogPost.coverImage.src} 2x`}
-            width={300}
-            height={300}
-            alt={blogPost.coverImage.alt}
-          />
-        )} */}
+      <div className="pt-8 mt-8 prose border-t">
+        <Image
+          alt={blogPost.coverImage.fields.file.fileName}
+          src={"https:" + blogPost.coverImage.fields.file.url}
+          width={1920}
+          height={1080}
+        />
 
         {/* Render the blog post title */}
         <h1>{blogPost.title}</h1>
+        <div>
+          <Image
+            alt={blogPost.author.fields.name}
+            src={"https:" + blogPost.author.fields.picture.fields.file.url}
+            width={48}
+            height={48}
+          />
+          <h2>{blogPost.author.fields.name}</h2>
+        </div>
 
         {/* Render the blog post body */}
         <RichText document={blogPost.body} />

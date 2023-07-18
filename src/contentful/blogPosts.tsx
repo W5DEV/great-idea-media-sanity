@@ -1,5 +1,5 @@
 import { TypePostSkeleton } from "./types";
-import { Asset, Entry, UnresolvedLink } from "contentful";
+import { Entry } from "contentful";
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 import contentfulClient from "./contentfulClient";
 
@@ -10,8 +10,10 @@ type BlogPostEntry = Entry<TypePostSkeleton, undefined, string>;
 export interface BlogPost {
   title: string;
   slug: string;
-  coverImage: UnresolvedLink<"Asset"> | Asset<undefined, string>;
+  coverImage: any;
   body: RichTextDocument | null;
+  author: any;
+  category: any;
 }
 
 // A function to transform a Contentful blog post
@@ -28,6 +30,8 @@ export function parseContentfulBlogPost(
     slug: blogPostEntry.fields.slug,
     coverImage: blogPostEntry.fields.coverImage,
     body: blogPostEntry.fields.content || null,
+    author: blogPostEntry.fields.author,
+    category: blogPostEntry.fields.category,
   };
 }
 
@@ -43,7 +47,7 @@ export async function fetchBlogPosts({
 
   const blogPostsResult = await contentful.getEntries<TypePostSkeleton>({
     content_type: "post",
-    include: 2,
+    include: 4,
     order: ["fields.title"],
   });
 
