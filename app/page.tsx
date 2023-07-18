@@ -1,4 +1,5 @@
-import { fetchBlogPosts } from "@/src/contentful/blogPosts";
+import NavBar from "@/components/NavBar";
+import {fetchBlogPosts } from "@/src/contentful/blogPosts";
 import { draftMode } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,37 +9,52 @@ async function Home() {
   // if draft mode is enabled:
   const blogPosts = await fetchBlogPosts({ preview: draftMode().isEnabled });
 
+  const news = blogPosts.filter((blogPost) => {
+    if (blogPost.category.fields.category === 'News') {
+      return blogPost;
+    }
+  });
+  const sports = blogPosts.filter((blogPost) => {
+    if (blogPost.category.fields.category === 'Sports') {
+      return blogPost;
+    }
+  });
+
+  console.log(news[0].title)
+
   return (
-    <main className="p-[6vw]">
-      <div className="prose">
-        <h1>Great Idea Media</h1>
-        <ul>
-          {blogPosts.map((blogPost) => {
-            return (
-              <li
-                key={blogPost.slug}
-                className="w-2/5 p-4 my-2 border border-black"
-              >
-                <Link href={`/${blogPost.slug}`}>
-                  <Image
-                    alt={blogPost.coverImage.fields.file.fileName}
-                    src={"https:" + blogPost.coverImage.fields.file.url}
-                    width={240}
-                    height={240}
-                  />
-                  <div className="flex flex-col items-start justify-start">
-                    <span>{blogPost.title}</span>
-                    <span className="italic">
-                      by: {blogPost.author.fields.name}
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </main>
+    <>
+      <NavBar news={news} sports={sports} newest={blogPosts[0]} />
+      <main className="p-[6vw]">
+        <div className="prose">
+          <ul>
+            {blogPosts.map((blogPost) => {
+              return (
+                <li
+                  key={blogPost.slug}
+                  className="w-2/5 p-4 my-2 border border-black"
+                >
+                  <Link href={`/${blogPost.slug}`}>
+                    <Image
+                      alt={blogPost.coverImage.fields.file.fileName}
+                      src={"https:" + blogPost.coverImage.fields.file.url}
+                      width={240}
+                      height={240}
+                    />
+                    <div className="flex flex-col items-start justify-start">
+                      <span>{blogPost.title}</span>
+                      <span className="italic">
+                        by: {blogPost.author.fields.name}
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </main>
+    </>
   );
 }
 
