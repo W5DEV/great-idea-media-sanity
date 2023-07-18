@@ -17,13 +17,13 @@ export default function PostPage(posts: any) {
           <p className="mx-4 text-sm italic">{posts.postDate.toDateString()}</p>
         </div>
 
-        <div className="flex flex-row items-center justify-start gap-5 mt-4 mb-10">
+        <div className="flex flex-row items-center justify-start gap-3 mt-4 mb-10">
           <Image
             className="rounded-full"
             alt={posts.blogPost.author.fields.name}
             src={"https:" + posts.blogPost.author.fields.picture.fields.file.url}
-            width={48}
-            height={48}
+            width={36}
+            height={36}
           />
           <h2 className="text-xl font-medium">{posts.blogPost.author.fields.name}</h2>
         </div>

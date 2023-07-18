@@ -8,6 +8,7 @@ import {
   QuestionMarkCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+import Link from 'next/link';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -241,6 +242,12 @@ export default function HomePage(posts: any) {
                       {/* Flyout menus */}
                       <Popover.Group className="inset-x-0 bottom-0 px-4">
                         <div className="flex justify-center h-full space-x-8">
+                          <Link
+                              href='/'
+                              className="flex items-center text-sm font-medium text-white"
+                            >
+                              Home
+                            </Link>
                           {navigation.categories.map((category) => (
                             <Popover key={category.name} className="flex">
                               {({ open }) => (
@@ -283,10 +290,10 @@ export default function HomePage(posts: any) {
                                                     className="object-cover object-center"
                                                   />
                                                 </div>
-                                                <a href={item.href} className="block mt-4 font-medium text-gray-900">
+                                                <Link href={item.href} className="block mt-4 font-medium text-gray-900">
                                                   <span className="absolute inset-0 z-10" aria-hidden="true" />
                                                   {item.name}
-                                                </a>
+                                                </Link>
                                               </div>
                                             ))}
                                           </div>
@@ -300,13 +307,13 @@ export default function HomePage(posts: any) {
                           ))}
 
                           {navigation.pages.map((page) => (
-                            <a
+                            <Link
                               key={page.name}
                               href={page.href}
                               className="flex items-center text-sm font-medium text-white"
                             >
                               {page.name}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </Popover.Group>
@@ -318,12 +325,6 @@ export default function HomePage(posts: any) {
                         <span className="sr-only">Open menu</span>
                         <Bars3Icon className="w-6 h-6" aria-hidden="true" />
                       </button>
-
-                      {/* Search */}
-                      <a href="#" className="p-2 ml-2 text-white">
-                        <span className="sr-only">Search</span>
-                        <MagnifyingGlassIcon className="w-6 h-6" aria-hidden="true" />
-                      </a>
                     </div>
 
                     {/* Logo (lg-) */}
@@ -332,20 +333,21 @@ export default function HomePage(posts: any) {
                       <img src="https://tailwindui.com/img/logos/mark.svg?color=white" alt="" className="w-auto h-8" />
                     </a>
 
+                    
                     <div className="flex items-center justify-end flex-1">
-                      <a href="#" className="hidden text-sm font-medium text-white lg:block">
-                        Search
+                      {/* Search */}
+                      <a href="#" className="p-2 ml-4 text-white">
+                        <span className="sr-only">Search</span>
+                        <MagnifyingGlassIcon className="w-6 h-6" aria-hidden="true" />
                       </a>
 
-                      <div className="flex items-center lg:ml-8">
+                      
+                      <div className="flex items-center lg:ml-4">
                         {/* Help */}
-                        <a href="#" className="p-2 text-white lg:hidden">
+                        <span className="p-2 text-white">
                           <span className="sr-only">Help</span>
                           <QuestionMarkCircleIcon className="w-6 h-6" aria-hidden="true" />
-                        </a>
-                        <a href="#" className="hidden text-sm font-medium text-white lg:block">
-                          Help
-                        </a>
+                        </span>
 
                       </div>
                     </div>
