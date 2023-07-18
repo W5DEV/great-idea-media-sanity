@@ -232,7 +232,7 @@ export default function HomePage(posts: any) {
                         <span className="sr-only">Your Company</span>
                         <img
                           className="w-auto h-8"
-                          src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                          src="/great-idea-logo.svg"
                           alt=""
                         />
                       </a>
@@ -330,7 +330,7 @@ export default function HomePage(posts: any) {
                     {/* Logo (lg-) */}
                     <a href="#" className="lg:hidden">
                       <span className="sr-only">Your Company</span>
-                      <img src="https://tailwindui.com/img/logos/mark.svg?color=white" alt="" className="w-auto h-8" />
+                      <img src="/great-idea-logo.svg" alt="" className="w-auto h-8" />
                     </a>
 
                     
