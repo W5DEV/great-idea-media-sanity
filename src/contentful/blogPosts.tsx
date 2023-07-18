@@ -52,7 +52,7 @@ export async function fetchBlogPosts({
   const blogPostsResult = await contentful.getEntries<TypePostSkeleton>({
     content_type: "post",
     include: 4,
-    order: ["fields.title"],
+    order: ["fields.date"],
   });
 
   return blogPostsResult.items.map(
