@@ -60,7 +60,7 @@ async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <main className="p-[6vw]">
       <Link href="/">← Posts</Link>
-      <div className="pt-8 mt-8 prose border-t">
+      <div className="pt-8 mt-8 prose border-t border-black">
         <Image
           alt={blogPost.coverImage.fields.file.fileName}
           src={"https:" + blogPost.coverImage.fields.file.url}
