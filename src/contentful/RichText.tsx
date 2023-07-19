@@ -9,7 +9,6 @@ export default function RichText({ document }: RichTextProps) {
   if (!document) {
     return null;
   }
-  console.log(documentToReactComponents(document));
 
   return <div className="postbody">{documentToReactComponents(document)}</div>;
 }

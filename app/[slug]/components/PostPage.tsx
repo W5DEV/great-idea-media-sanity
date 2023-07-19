@@ -4,7 +4,6 @@ import Image from "next/image";
 
 
 export default function PostPage(posts: any) {
-    console.log('nav: ', posts.sports)
 
   return (
     <div className="p-16 bg-white">

@@ -1,7 +1,6 @@
 "use client";
 
 export default function HomePage(posts: any) {
-    console.log('nav: ', posts.sports)
 
     const footerNavigation = {
         shop: [

@@ -14,7 +14,6 @@ function classNames(...classes: string[]) {
 }
 
 export default function HomePage(posts: any) {
-    console.log('nav: ', posts.sports)
 
 
   return (

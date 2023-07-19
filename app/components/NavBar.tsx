@@ -15,7 +15,6 @@ function classNames(...classes: string[]) {
 }
 
 export default function HomePage(posts: any) {
-    console.log('nav: ', posts.sports)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     
     const navigation = {
