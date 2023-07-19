@@ -10,5 +10,6 @@ export type Article = {
   alt: string;
   category: string;
   subCategory: string;
+  excerpt: string;
   content: PortableTextBlock[];
 };

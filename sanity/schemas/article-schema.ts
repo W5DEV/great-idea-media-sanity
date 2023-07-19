@@ -169,6 +169,11 @@ const article = {
       ],
     },
     {
+      name: 'excerpt',
+      title: 'excerpt',
+      type: 'string',
+    },
+    {
       name: 'content',
       title: 'Content',
       type: 'array',
