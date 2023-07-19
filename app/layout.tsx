@@ -2,10 +2,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
-import ExitDraftModeLink from "./ExitDraftModeLink";
-import { fetchBlogPosts } from "@/src/contentful/blogPosts";
+import ExitDraftModeLink from './ExitDraftModeLink';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import BlogPosts from '../posts.json';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,18 +18,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
   }) {
-  const blogPosts = await fetchBlogPosts({ preview: draftMode().isEnabled });
-
-  const news = blogPosts.filter((blogPost) => {
-    if (blogPost.category.fields.category === 'News') {
-      return blogPost;
-    }
-  });
-  const sports = blogPosts.filter((blogPost) => {
-    if (blogPost.category.fields.category === 'Sports') {
-      return blogPost;
-    }
-  });
+  const news = BlogPosts.news;
+  const sports = BlogPosts.sports;
   return (
     <html lang="en">
       <body className={inter.className}>
