@@ -17,7 +17,6 @@ export async function generateMetadata(params: any): Promise<Metadata> {
 
 // The actual BlogPostPage component.
 function BlogPostPage(params: any) {
-  console.log(params.params.slug);
   const blogPost: any = BlogPosts.all.find((post) => post.slug === params.params.slug);
 
   if (!blogPost) {
