@@ -1,4 +1,5 @@
 import { getArticlesByCategory } from '@/sanity/sanity-utils';
+import Link from 'next/link';
 
 export default async function Home() {
   const articles = await getArticlesByCategory('Sports');
@@ -6,7 +7,7 @@ export default async function Home() {
   return (
     <>
       <div className='bg-white'>
-        <main className='mb-16'>
+        <main className='h-auto mb-16'>
           <div className='pt-8 ml-24 sm:pt-16'>
             <span className='text-4xl font-bold'>Sports</span>
             <span className='ml-8 text-lg font-medium'>
@@ -16,31 +17,97 @@ export default async function Home() {
           {/* Featured Sports */}
           <section
             aria-labelledby='social-impact-heading'
-            className='px-4 pt-8 mx-auto max-w-7xl sm:px-6 sm:pt-16 lg:px-8'
+            className='h-64 mx-auto mt-8 max-w-7xl sm:mt-16 sm:h-96 md:h-128 lg:h-160'
           >
-            <div className='relative overflow-hidden rounded-lg'>
-              <div className='absolute inset-0'>
-                <img
-                  src={articles[0].coverImage}
-                  alt=''
-                  className='object-cover object-center w-full h-full'
-                />
+            <div className='flex flex-row items-center justify-center w-full h-full'>
+              <div className='flex-1 h-full mr-2'>
+                <Link
+                  href={`/articles/${articles[0].slug}`}
+                  className='relative w-full h-full overflow-hidden cursor-pointer'
+                >
+                  <div className='absolute inset-0'>
+                    <img
+                      src={articles[0].coverImage}
+                      alt=''
+                      className='object-cover object-center w-full h-full'
+                    />
+                  </div>
+                  <div className='relative flex flex-col items-end justify-end w-full h-full bg-gradient-to-t from-gray-800 to-transparent hover:bg-gray-800 hover:bg-opacity-30'>
+                    <div className='relative flex flex-col items-start justify-end w-full pl-4 mb-4 text-center'>
+                      <Link
+                        href={`/articles/${articles[0].slug}`}
+                        className='flex flex-col items-start text-white hover:underline'
+                      >
+                        <h2
+                          id='social-impact-heading'
+                          className='text-3xl font-bold tracking-tight text-white sm:text-4xl'
+                        >
+                          <span className='block sm:inline'>{articles[0].title}</span>
+                        </h2>
+                      </Link>
+                      <p className='mt-3 text-base text-left text-white'>{articles[0].excerpt}</p>
+                    </div>
+                  </div>
+                </Link>
               </div>
-              <div className='relative px-6 py-32 bg-gray-900 bg-opacity-75 sm:px-12 sm:py-40 lg:px-16'>
-                <div className='relative flex flex-col items-center max-w-3xl mx-auto text-center'>
-                  <h2
-                    id='social-impact-heading'
-                    className='text-3xl font-bold tracking-tight text-white sm:text-4xl'
+              <div className='w-[calc(40%-0.5rem)] h-full'>
+                <div className='relative w-full mb-2 overflow-hidden h-[calc(50%-0.25rem)]'>
+                  <Link
+                    href={`/articles/${articles[1].slug}`}
+                    className='relative w-full h-full cursor-pointer'
                   >
-                    <span className='block sm:inline'>{articles[0].title}</span>
-                  </h2>
-                  <p className='mt-3 text-xl text-white'>{articles[0].slug}</p>
-                  <a
-                    href={`/articles/${articles[0].slug}`}
-                    className='block w-full px-8 py-3 mt-8 text-base font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-100 sm:w-auto'
+                    <div className='absolute inset-0'>
+                      <img
+                        src={articles[1].coverImage}
+                        alt=''
+                        className='object-cover object-center w-full h-full'
+                      />
+                    </div>
+                    <div className='relative flex flex-col items-end justify-end w-full h-full bg-gradient-to-t from-gray-800 to-transparent hover:bg-gray-800 hover:bg-opacity-30'>
+                      <div className='relative flex flex-col items-start justify-end w-full pl-4 mb-4 text-center'>
+                        <Link
+                          href={`/articles/${articles[1].slug}`}
+                          className='flex flex-col items-start text-white hover:underline'
+                        >
+                          <h2
+                            id='social-impact-heading'
+                            className='text-3xl font-bold tracking-tight text-left text-white sm:text-lg'
+                          >
+                            <span className='block sm:inline'>{articles[1].title}</span>
+                          </h2>
+                        </Link>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                <div className='relative w-full mt-1 overflow-hidden h-[calc(50%-0.25rem)]'>
+                  <Link
+                    href={`/articles/${articles[2].slug}`}
+                    className='relative w-full h-full cursor-pointer'
                   >
-                    Read More...
-                  </a>
+                    <div className='absolute inset-0'>
+                      <img
+                        src={articles[2].coverImage}
+                        alt=''
+                        className='object-cover object-center w-full h-full'
+                      />
+                    </div>
+                    <div className='relative flex flex-col items-end justify-end w-full h-full bg-gradient-to-t from-gray-800 to-transparent hover:bg-gray-800 hover:bg-opacity-30'>
+                      <div className='relative flex flex-col items-start justify-end w-full pl-4 mb-4 text-center'>
+                        <Link
+                          href={`/articles/${articles[2].slug}`}
+                          className='flex flex-col items-start text-white hover:underline'
+                        >
+                          <h2
+                            id='social-impact-heading'
+                            className='text-3xl font-bold tracking-tight text-left text-white sm:text-lg'
+                          >
+                            <span className='block sm:inline'>{articles[2].title}</span>
+                          </h2>
+                        </Link>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -49,7 +116,7 @@ export default async function Home() {
           {/* Sports Slider */}
           <section
             aria-labelledby='category-heading'
-            className='pt-24 sm:pt-32 xl:mx-auto xl:max-w-7xl xl:px-8'
+            className='mt-12 sm:mt-16 xl:mx-auto xl:max-w-7xl xl:px-8'
           >
             <div className='px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0'>
               <h2 id='category-heading' className='text-2xl font-bold tracking-tight text-gray-900'>

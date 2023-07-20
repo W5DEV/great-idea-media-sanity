@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        128: '32rem',
+        160: '40rem',
+        192: '48rem',
+        256: '64rem',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -14,5 +20,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms', '@tailwindcss/aspect-ratio'), ],
-}
+  plugins: [require('@tailwindcss/forms', '@tailwindcss/aspect-ratio')],
+};

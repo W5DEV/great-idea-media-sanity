@@ -35,7 +35,7 @@ export default async function Home() {
             <h1 className='text-4xl font-bold tracking-tight text-white lg:text-6xl'>
               {newest.title}
             </h1>
-            <p className='mt-4 text-xl text-white'>{newest.slug}</p>
+            <p className='mt-4 text-lg text-white'>{newest.excerpt}</p>
             <a
               href={`/articles/${newest.slug}`}
               className='inline-block px-8 py-3 mt-8 text-base font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-100'
@@ -133,8 +133,8 @@ export default async function Home() {
                       {news[0].title === newest.title ? news[1].title : news[0].title}
                     </span>
                   </h2>
-                  <p className='mt-3 text-xl text-white'>
-                    {news[0].slug === newest.slug ? news[1].slug : news[0].slug}
+                  <p className='mt-3 text-lg text-white'>
+                    {news[0].excerpt === newest.excerpt ? news[1].excerpt : news[0].excerpt}
                   </p>
                   <a
                     href={`/articles/${news[0].slug === newest.slug ? news[1].slug : news[0].slug}`}
@@ -234,8 +234,8 @@ export default async function Home() {
                       {sports[0].title === newest.title ? sports[1].title : sports[0].title}
                     </span>
                   </h2>
-                  <p className='mt-3 text-xl text-white'>
-                    {sports[0].slug === newest.slug ? sports[1].slug : sports[0].slug}
+                  <p className='mt-3 text-lg text-white'>
+                    {sports[0].excerpt === newest.excerpt ? sports[1].excerpt : sports[0].excerpt}
                   </p>
                   <a
                     href={`/articles/${
