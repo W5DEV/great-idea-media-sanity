@@ -1,5 +1,6 @@
 import { getArticlesByCategory } from '@/sanity/sanity-utils';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function Home() {
   const articles = await getArticlesByCategory('News');
@@ -14,7 +15,7 @@ export default async function Home() {
               Check out the latest news from around the area!
             </span>
           </div>
-          {/* Featured Sports */}
+          {/* Featured News */}
           <section
             aria-labelledby='social-impact-heading'
             className='h-64 mx-auto mt-8 max-w-7xl sm:mt-16 sm:h-96 md:h-128 lg:h-160'
@@ -26,7 +27,9 @@ export default async function Home() {
                   className='relative w-full h-full overflow-hidden cursor-pointer'
                 >
                   <div className='absolute inset-0'>
-                    <img
+                    <Image
+                      fill
+                      quality={25}
                       src={articles[0].coverImage}
                       alt=''
                       className='object-cover object-center w-full h-full'
@@ -57,7 +60,9 @@ export default async function Home() {
                     className='relative w-full h-full cursor-pointer'
                   >
                     <div className='absolute inset-0'>
-                      <img
+                      <Image
+                        fill
+                        quality={25}
                         src={articles[1].coverImage}
                         alt=''
                         className='object-cover object-center w-full h-full'
@@ -86,7 +91,9 @@ export default async function Home() {
                     className='relative w-full h-full cursor-pointer'
                   >
                     <div className='absolute inset-0'>
-                      <img
+                      <Image
+                        fill
+                        quality={25}
                         src={articles[2].coverImage}
                         alt=''
                         className='object-cover object-center w-full h-full'
@@ -113,7 +120,7 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* Sports Slider */}
+          {/* News Slider */}
           <section
             aria-labelledby='category-heading'
             className='mt-12 sm:mt-16 xl:mx-auto xl:max-w-7xl xl:px-8'
@@ -142,7 +149,9 @@ export default async function Home() {
                         className='relative flex flex-col w-56 p-6 overflow-hidden rounded-lg h-80 hover:opacity-75'
                       >
                         <span aria-hidden='true' className='absolute inset-0'>
-                          <img
+                          <Image
+                            fill
+                            quality={25}
                             src={article.coverImage}
                             alt=''
                             className='object-cover object-center w-full h-full'

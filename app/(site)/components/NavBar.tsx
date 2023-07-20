@@ -9,7 +9,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link';
-
+import Image from 'next/image';
 
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -109,7 +109,13 @@ export default function NavBar() {
                     <div className='hidden lg:flex lg:flex-1 lg:items-center'>
                       <a href='/'>
                         <span className='sr-only'>Great Idea Media</span>
-                        <img className='w-auto h-8' src='/great-idea-logo.svg' alt='' />
+                        <Image
+                          quality={25}
+                          height={36}
+                          width={300}
+                          src='/great-idea-logo.svg'
+                          alt=''
+                        />
                       </a>
                     </div>
 
@@ -145,7 +151,13 @@ export default function NavBar() {
                     {/* Logo (lg-) */}
                     <a href='/' className='lg:hidden'>
                       <span className='sr-only'>Great Idea Media</span>
-                      <img src='/great-idea-logo.svg' alt='' className='w-auto h-8' />
+                      <Image
+                        src='/great-idea-logo.svg'
+                        alt=''
+                        height={32}
+                        width={300}
+                        quality={25}
+                      />
                     </a>
 
                     <div className='flex items-center justify-end flex-1'>

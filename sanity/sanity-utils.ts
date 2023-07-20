@@ -15,7 +15,6 @@ export async function getArticles(): Promise<Article[]> {
             category,
             subCategory,
             excerpt,
-            content,
         }`,
   );
 }
@@ -54,8 +53,66 @@ export async function getArticlesByCategory(
             category,
             subCategory,
             excerpt,
-            content,
         }`,
     { category },
+  );
+}
+
+export async function getFeaturedArticles(): Promise<Article[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "article"] | order(_createdAt desc)[0..5]{
+            _id,
+            _createdAt,
+            title, 
+            "slug": slug.current,
+            author,
+            "coverImage": coverImage.asset->url,
+            alt,
+            category,
+            subCategory,
+            excerpt,
+        }`,
+  );
+}
+
+export async function getFeaturedArticlesByCategory() {
+  return createClient(clientConfig).fetch(
+    groq`
+    {'featured': *[_type == "article"] | order(_createdAt desc)[0..10]{
+            _id,
+            _createdAt,
+            title, 
+            "slug": slug.current,
+            author,
+            "coverImage": coverImage.asset->url,
+            alt,
+            category,
+            subCategory,
+            excerpt,
+        },
+    'sports': *[_type == "article" && category == 'Sports'] | order(_createdAt desc)[0..2]{
+            _id,
+            _createdAt,
+            title, 
+            "slug": slug.current,
+            author,
+            "coverImage": coverImage.asset->url,
+            alt,
+            category,
+            subCategory,
+            excerpt,
+        },
+    'news': *[_type == "article" && category == 'News'] | order(_createdAt desc)[0..2]{
+            _id,
+            _createdAt,
+            title, 
+            "slug": slug.current,
+            author,
+            "coverImage": coverImage.asset->url,
+            alt,
+            category,
+            subCategory,
+            excerpt,
+        },}`,
   );
 }

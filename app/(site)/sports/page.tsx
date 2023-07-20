@@ -1,4 +1,5 @@
 import { getArticlesByCategory } from '@/sanity/sanity-utils';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Home() {
@@ -26,7 +27,9 @@ export default async function Home() {
                   className='relative w-full h-full overflow-hidden cursor-pointer'
                 >
                   <div className='absolute inset-0'>
-                    <img
+                    <Image
+                      fill
+                      quality={25}
                       src={articles[0].coverImage}
                       alt=''
                       className='object-cover object-center w-full h-full'
@@ -57,7 +60,9 @@ export default async function Home() {
                     className='relative w-full h-full cursor-pointer'
                   >
                     <div className='absolute inset-0'>
-                      <img
+                      <Image
+                        fill
+                        quality={25}
                         src={articles[1].coverImage}
                         alt=''
                         className='object-cover object-center w-full h-full'
@@ -86,7 +91,9 @@ export default async function Home() {
                     className='relative w-full h-full cursor-pointer'
                   >
                     <div className='absolute inset-0'>
-                      <img
+                      <Image
+                        fill
+                        quality={25}
                         src={articles[2].coverImage}
                         alt=''
                         className='object-cover object-center w-full h-full'
@@ -122,13 +129,6 @@ export default async function Home() {
               <h2 id='category-heading' className='text-2xl font-bold tracking-tight text-gray-900'>
                 Latest Sports
               </h2>
-              <a
-                href='#'
-                className='hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block'
-              >
-                View all Sports
-                <span aria-hidden='true'> &rarr;</span>
-              </a>
             </div>
 
             <div className='flow-root mt-4'>
@@ -142,7 +142,9 @@ export default async function Home() {
                         className='relative flex flex-col w-56 p-6 overflow-hidden rounded-lg h-80 hover:opacity-75'
                       >
                         <span aria-hidden='true' className='absolute inset-0'>
-                          <img
+                          <Image
+                            fill
+                            quality={25}
                             src={article.coverImage}
                             alt=''
                             className='object-cover object-center w-full h-full'
