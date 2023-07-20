@@ -42,7 +42,7 @@ export async function getArticlesByCategory(
   category: string,
 ): Promise<Article[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "article" && category == $category] | order(_createdAt desc){
+    groq`*[_type == "article" && category == $category] | order(_createdAt desc)[0..6]{
             _id,
             _createdAt,
             title, 

@@ -5,7 +5,6 @@ import Image from 'next/image';
 
 export default async function Home() {
   const articles = await getFeaturedArticlesByCategory();
-  console.log(articles.featured.length);
 
   const sports = articles.sports;
   const news = articles.news;
