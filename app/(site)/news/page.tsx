@@ -37,17 +37,14 @@ export default async function Home() {
                   </div>
                   <div className='relative flex flex-col items-end justify-end w-full h-full bg-gradient-to-t from-gray-800 to-transparent hover:bg-gray-800 hover:bg-opacity-30'>
                     <div className='relative flex flex-col items-start justify-end w-full pl-4 mb-4 text-center'>
-                      <Link
-                        href={`/articles/${articles[0].slug}`}
-                        className='flex flex-col items-start text-white hover:underline'
-                      >
+                      <span className='flex flex-col items-start text-white hover:underline'>
                         <h2
                           id='social-impact-heading'
                           className='text-3xl font-bold tracking-tight text-white sm:text-4xl'
                         >
                           <span className='block sm:inline'>{articles[0].title}</span>
                         </h2>
-                      </Link>
+                      </span>
                       <p className='mt-3 text-base text-left text-white'>{articles[0].excerpt}</p>
                     </div>
                   </div>
@@ -70,17 +67,14 @@ export default async function Home() {
                     </div>
                     <div className='relative flex flex-col items-end justify-end w-full h-full bg-gradient-to-t from-gray-800 to-transparent hover:bg-gray-800 hover:bg-opacity-30'>
                       <div className='relative flex flex-col items-start justify-end w-full pl-4 mb-4 text-center'>
-                        <Link
-                          href={`/articles/${articles[1].slug}`}
-                          className='flex flex-col items-start text-white hover:underline'
-                        >
+                        <span className='flex flex-col items-start text-white hover:underline'>
                           <h2
                             id='social-impact-heading'
                             className='text-3xl font-bold tracking-tight text-left text-white sm:text-lg'
                           >
                             <span className='block sm:inline'>{articles[1].title}</span>
                           </h2>
-                        </Link>
+                        </span>
                       </div>
                     </div>
                   </Link>
@@ -101,17 +95,14 @@ export default async function Home() {
                     </div>
                     <div className='relative flex flex-col items-end justify-end w-full h-full bg-gradient-to-t from-gray-800 to-transparent hover:bg-gray-800 hover:bg-opacity-30'>
                       <div className='relative flex flex-col items-start justify-end w-full pl-4 mb-4 text-center'>
-                        <Link
-                          href={`/articles/${articles[2].slug}`}
-                          className='flex flex-col items-start text-white hover:underline'
-                        >
+                        <span className='flex flex-col items-start text-white hover:underline'>
                           <h2
                             id='social-impact-heading'
                             className='text-3xl font-bold tracking-tight text-left text-white sm:text-lg'
                           >
                             <span className='block sm:inline'>{articles[2].title}</span>
                           </h2>
-                        </Link>
+                        </span>
                       </div>
                     </div>
                   </Link>
