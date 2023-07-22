@@ -1,4 +1,5 @@
-import { Article } from '@/types/Article';
+import type { Article } from '@/types/Article';
+import type { FeaturedArticles } from '@/types/FeaturedArticle';
 import { createClient, groq } from 'next-sanity';
 import clientConfig from './config/client-config';
 
@@ -75,7 +76,7 @@ export async function getFeaturedArticles(): Promise<Article[]> {
   );
 }
 
-export async function getFeaturedArticlesByCategory() {
+export async function getFeaturedArticlesByCategory(): Promise<FeaturedArticles> {
   return createClient(clientConfig).fetch(
     groq`
     {'featured': *[_type == "article"] | order(_createdAt desc)[0..10]{
