@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { getArticle } from '@/sanity/sanity-utils';
@@ -28,8 +28,8 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <main>
-      <div className='p-16 bg-white'>
-        <main className='mb-16'>
+      <div className='p-16 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-slate-200 to-white'>
+        <main className='pb-16'>
           <div className='py-8 my-8 prose border-black border-y'>
             <div className='pb-2'>
               <h1 className='pb-2 text-3xl font-semibold'>{article.title}</h1>

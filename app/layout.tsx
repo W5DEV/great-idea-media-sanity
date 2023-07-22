@@ -1,8 +1,8 @@
 import './globals.css';
 
-export default async function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' className='bg-gradient-to-tl from-gray-100 to-gray-300'>
       <body>{children}</body>
     </html>
   );

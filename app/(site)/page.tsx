@@ -1,8 +1,7 @@
 import { getFeaturedArticlesByCategory } from '@/sanity/sanity-utils';
-import { Article } from '@/types/Article';
+import type { Article } from '@/types/Article';
 import Link from 'next/link';
 import Image from 'next/image';
-
 export default async function Home() {
   const articles = await getFeaturedArticlesByCategory();
 
@@ -14,7 +13,7 @@ export default async function Home() {
   return (
     <>
       {articles && (
-        <div className='bg-white'>
+        <div className='bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-slate-200 to-white'>
           {/* Hero section */}
           <div className='relative bg-gray-900'>
             {/* Decorative image and overlay */}
@@ -43,7 +42,7 @@ export default async function Home() {
             </div>
           </div>
 
-          <main className='mb-16'>
+          <main className='pb-16'>
             {/* Featured Articles */}
             <section
               aria-labelledby='category-heading'

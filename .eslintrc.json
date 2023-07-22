@@ -56,18 +56,6 @@
         "import/no-named-as-default": "error",
         "import/prefer-default-export": "error"
       }
-    },
-    {
-      "files": "src/**/*.stories.{ts,tsx,mdx}",
-      "extends": ["plugin:storybook/recommended"]
-    },
-    {
-      "files": ["**/*.(spec|test).{ts,tsx}"],
-      "extends": ["plugin:testing-library/react", "plugin:jest-dom/recommended"]
-    },
-    {
-      "files": ["**/cypress/**/*.{ts,tsx}"],
-      "extends": ["plugin:cypress/recommended"]
     }
   ]
 }

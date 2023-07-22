@@ -1,14 +1,15 @@
 import { getArticlesByCategory } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Article } from '@/types/Article';
 
 export default async function Home() {
   const articles = await getArticlesByCategory('Sports');
 
   return (
     <>
-      <div className='bg-white'>
-        <main className='h-auto mb-16'>
+      <div className='bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-slate-200 to-white'>
+        <main className='h-auto pb-16'>
           <div className='pt-8 ml-24 sm:pt-16'>
             <span className='text-4xl font-bold'>Sports</span>
             <span className='ml-8 text-lg font-medium'>
@@ -126,9 +127,9 @@ export default async function Home() {
               <div className='-my-2'>
                 <div className='box-content relative py-2 overflow-x-auto h-80'>
                   <div className='absolute flex px-4 space-x-8 sm:px-6 lg:px-8 '>
-                    {articles.map((article: any) => (
+                    {articles.map((article: Article) => (
                       <a
-                        key={article.id}
+                        key={article._id}
                         href={`/articles/${article.slug}`}
                         className='relative flex flex-col w-56 p-6 overflow-hidden rounded-lg h-80 hover:opacity-75'
                       >

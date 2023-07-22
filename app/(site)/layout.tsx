@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   description: 'News and Sports. Nothing added.',
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <GoogleAnalytics GA_MEASUREMENT_ID='G-V1NEBK43ZT' />
-      <body>
+      <body className='bg-gradient-to-tl from-gray-100 to-gray-300'>
         <NavBar />
         {children}
         <Footer />
