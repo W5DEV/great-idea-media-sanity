@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Great Idea Media',

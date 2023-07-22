@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { Fragment, useState } from 'react'
+import { Fragment, useState } from 'react';
 import { Dialog, Popover, Transition } from '@headlessui/react';
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
   QuestionMarkCircleIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
+} from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 
