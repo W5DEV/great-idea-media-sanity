@@ -2,6 +2,11 @@ import { getArticlesByCategory } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Article } from '@/types/Article';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sports',
+};
 
 export default async function Home() {
   const articles = await getArticlesByCategory('Sports');

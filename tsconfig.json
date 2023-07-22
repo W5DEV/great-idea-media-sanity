@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/gtag.jsnalytics.tsx"
+    "app/components/gtag.jsnalytics.tsx"
   ],
   "exclude": ["node_modules"]
 }
